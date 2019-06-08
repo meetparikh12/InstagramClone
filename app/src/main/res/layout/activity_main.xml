@@ -24,4 +24,13 @@
         android:layout_height="wrap_content"
         android:text="" />
 
+    <Button
+        android:id="@+id/btnNextActivity"
+        android:layout_width="wrap_content"
+        android:layout_above="@id/getData"
+        android:layout_marginBottom="20dp"
+        android:text="Switch to next activity"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content" />
+
 </RelativeLayout>
