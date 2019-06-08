@@ -29,7 +29,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         setTitle(R.string.sign_up);
         setContentView(R.layout.activity_sign_up);
         if(ParseUser.getCurrentUser() != null){
-            ParseUser.logOut();
+          //  ParseUser.logOut();
+            transitionToSocialMediaActivity();
         }
         edtSignUpUsername = findViewById(R.id.edtSignUpUsername);
         edtSignUpEmail = findViewById(R.id.edtSignUpEmail);
@@ -72,6 +73,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                             if (e == null) {
                                 Toast.makeText(SignUpActivity.this, appUser.get("username")
                                         + " signed in successfully", Toast.LENGTH_SHORT).show();
+                                transitionToSocialMediaActivity();
                             } else {
                                 Toast.makeText(SignUpActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
@@ -92,6 +94,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+    public void transitionToSocialMediaActivity(){
+        startActivity(new Intent(SignUpActivity.this,SocialMediaActivity.class));
     }
 
 }

@@ -66,6 +66,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             if (user != null && e == null) {
                                 Toast.makeText(LoginActivity.this, user.get("username") + " " +
                                         "logged in successfully", Toast.LENGTH_SHORT).show();
+                                transitionToSocialMediaActivity();
                             } else {
                                 Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
@@ -87,6 +88,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }catch(Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void transitionToSocialMediaActivity(){
+        startActivity(new Intent(LoginActivity.this,SocialMediaActivity.class));
     }
 }
 
