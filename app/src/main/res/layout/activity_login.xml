@@ -66,7 +66,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:contentDescription="@string/todo"
-        android:src="@drawable/instagram"
+        app:srcCompat="@drawable/instagram"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
