@@ -84,6 +84,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.btnLogIn:
                 startActivity(new Intent(SignUpActivity.this,LoginActivity.class));
+                finish();
                 break;
         }
     }
@@ -96,7 +97,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
     public void transitionToSocialMediaActivity(){
-        startActivity(new Intent(SignUpActivity.this,SocialMediaActivity.class));
+        Intent intent = new Intent(SignUpActivity.this,SocialMediaActivity.class);
+        startActivity(intent);
+        finish();
     }
 
 }

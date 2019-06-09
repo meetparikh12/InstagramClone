@@ -2,7 +2,6 @@
     <string name="app_name">Instagram Clone</string>
     <string name="sign_up">Sign Up</string>
     <string name="log_in">Log In</string>
-    <string name="todo">TODO</string>
     <string name="enter_username">Enter username</string>
     <string name="enter_password">Enter Password</string>
     <string name="enter_email">Enter email</string>
@@ -15,4 +14,8 @@
     <string name="hobbies">Hobbies</string>
     <string name="profession">Profession</string>
     <string name="update_info">Update Info</string>
+    <string name="description_for_image">Description for image..</string>
+    <string name="share_image">Share Image</string>
+    <string name="todo">TODO</string>
+    <string name="loading_please_wait">Loading.. Please wait!</string>
 </resources>

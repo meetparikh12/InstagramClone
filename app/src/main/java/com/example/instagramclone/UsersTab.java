@@ -48,7 +48,6 @@ public class UsersTab extends Fragment {
         arrayList = new ArrayList<>();
         arrayAdapter = new ArrayAdapter<>(getContext(),android.R.layout.simple_list_item_1,arrayList);
         tvBeforeLoading = view.findViewById(R.id.tvBeforeLoading);
-        tvBeforeLoading.setText("Loading.. Please wait!");
         ParseQuery<ParseUser> query = ParseUser.getQuery();
         query.whereNotEqualTo("username",ParseUser.getCurrentUser().getUsername());
         query.findInBackground(new FindCallback<ParseUser>() {
@@ -60,7 +59,7 @@ public class UsersTab extends Fragment {
                            arrayList.add(users.getUsername());
                         }
                         listView.setAdapter(arrayAdapter);
-                        tvBeforeLoading.animate().rotation(360).alpha(0).setDuration(2000);
+                        tvBeforeLoading.animate().alpha(0).setDuration(2000);
                         listView.setVisibility(View.VISIBLE);
 
                     }
