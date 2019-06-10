@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
+import com.shashank.sony.fancytoastlib.FancyToast;
 
 
 /**
@@ -70,9 +71,9 @@ public class ProfileTab extends Fragment {
                     @Override
                     public void done(ParseException e) {
                         if(e==null){
-                            Toast.makeText(getContext(), "Info updated Successfully", Toast.LENGTH_SHORT).show();
+                            FancyToast.makeText(getContext(), "Info updated Successfully", Toast.LENGTH_SHORT,FancyToast.SUCCESS,true).show();
                         }else{
-                            Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                            FancyToast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT,FancyToast.ERROR,true).show();
                         }
                         progressDialog.dismiss();
                     }

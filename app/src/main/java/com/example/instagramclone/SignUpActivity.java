@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
+import com.shashank.sony.fancytoastlib.FancyToast;
 
 
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
@@ -58,7 +59,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 String userEmail = edtSignUpEmail.getText().toString();
                 String userPassword = edtSignUpPassword.getText().toString();
                 if (userName.equals("") || userEmail.equals("") || userPassword.equals("")) {
-                    Toast.makeText(SignUpActivity.this, "Please Enter all the fields!", Toast.LENGTH_SHORT).show();
+                    FancyToast.makeText(SignUpActivity.this, "Please Enter all the details!", Toast.LENGTH_SHORT,FancyToast.INFO,true).show();
                 } else {
                     final ParseUser appUser = new ParseUser();
                     appUser.setUsername(userName);
@@ -71,11 +72,11 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                         @Override
                         public void done(ParseException e) {
                             if (e == null) {
-                                Toast.makeText(SignUpActivity.this, appUser.get("username")
-                                        + " signed in successfully", Toast.LENGTH_SHORT).show();
+                                FancyToast.makeText(SignUpActivity.this, appUser.get("username")
+                                        + " signed in successfully", Toast.LENGTH_SHORT,FancyToast.SUCCESS,true).show();
                                 transitionToSocialMediaActivity();
                             } else {
-                                Toast.makeText(SignUpActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                FancyToast.makeText(SignUpActivity.this, e.getMessage(), Toast.LENGTH_SHORT,FancyToast.ERROR,true).show();
                             }
                             progressDialog.dismiss();
                         }

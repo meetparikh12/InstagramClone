@@ -32,6 +32,7 @@ import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
+import com.shashank.sony.fancytoastlib.FancyToast;
 
 import java.io.ByteArrayOutputStream;
 
@@ -68,7 +69,7 @@ public class SharePictureTab extends Fragment implements View.OnClickListener{
             case R.id.btnUploadImage:
                 if(receivedImageBitmap != null){
                     if(imgDescription.getText().toString().equals("")){
-                        Toast.makeText(getContext(), "Please enter image Description!", Toast.LENGTH_SHORT).show();
+                        FancyToast.makeText(getContext(), "Please Enter Image Description!", Toast.LENGTH_SHORT,FancyToast.INFO,true).show();
                     }else{
                         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                         receivedImageBitmap.compress(Bitmap.CompressFormat.PNG,100,byteArrayOutputStream);
@@ -85,16 +86,16 @@ public class SharePictureTab extends Fragment implements View.OnClickListener{
                             @Override
                             public void done(ParseException e) {
                                 if(e == null){
-                                    Toast.makeText(getContext(), "Image Uploaded", Toast.LENGTH_SHORT).show();
+                                    FancyToast.makeText(getContext(), "Image Uploaded Successfully!", Toast.LENGTH_SHORT,FancyToast.SUCCESS,true).show();
                                 }else{
-                                    Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                                    FancyToast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT,FancyToast.ERROR,true).show();
                                 }
                                 progressDialog.dismiss();
                             }
                         });
                     }
                 }else{
-                    Toast.makeText(getContext(), "Select an image to upload!", Toast.LENGTH_SHORT).show();
+                    FancyToast.makeText(getContext(), "Please Select an image to upload!", Toast.LENGTH_SHORT,FancyToast.INFO,true).show();
                 }
                 break;
             case R.id.imgShare:

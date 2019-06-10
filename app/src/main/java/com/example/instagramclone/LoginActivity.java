@@ -4,6 +4,8 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -14,6 +16,7 @@ import android.widget.Toast;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
+import com.shashank.sony.fancytoastlib.FancyToast;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText edtLogInEmail, edtLogInPassword;
@@ -52,7 +55,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 String userEmail = edtLogInEmail.getText().toString();
                 String userPassword = edtLogInPassword.getText().toString();
                 if (userEmail.equals("") || userPassword.equals("")) {
-                    Toast.makeText(LoginActivity.this, "Please Enter all the details!", Toast.LENGTH_SHORT).show();
+                    FancyToast.makeText(LoginActivity.this,"Please Enter all the details!",Toast.LENGTH_SHORT,FancyToast.INFO,true).show();
                 }
                 else {
                     progressDialog = new ProgressDialog(LoginActivity.this);
@@ -62,11 +65,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         @Override
                         public void done(ParseUser user, ParseException e) {
                             if (user != null && e == null) {
-                                Toast.makeText(LoginActivity.this, user.get("username") + " " +
-                                        "logged in successfully", Toast.LENGTH_SHORT).show();
+                                FancyToast.makeText(LoginActivity.this, user.get("username") + " " +
+                                        "logged in successfully", Toast.LENGTH_SHORT,FancyToast.SUCCESS,true).show();
                                 transitionToSocialMediaActivity();
                             } else {
-                                Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                FancyToast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT,FancyToast.ERROR,true).show();
                             }
                             progressDialog.dismiss();
 

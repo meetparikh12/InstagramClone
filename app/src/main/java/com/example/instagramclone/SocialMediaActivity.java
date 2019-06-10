@@ -24,6 +24,7 @@ import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
+import com.shashank.sony.fancytoastlib.FancyToast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -108,9 +109,9 @@ public class SocialMediaActivity extends AppCompatActivity {
                     @Override
                     public void done(ParseException e) {
                         if(e == null){
-                            Toast.makeText(SocialMediaActivity.this, "Image Uploaded", Toast.LENGTH_SHORT).show();
+                            FancyToast.makeText(SocialMediaActivity.this, "Image Uploaded Successfully!", Toast.LENGTH_SHORT,FancyToast.SUCCESS,true).show();
                         }else{
-                            Toast.makeText(SocialMediaActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                            FancyToast.makeText(SocialMediaActivity.this, e.getMessage(), Toast.LENGTH_SHORT,FancyToast.ERROR,true).show();
                         }
                         progressDialog.dismiss();
                     }
