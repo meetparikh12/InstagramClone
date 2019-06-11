@@ -37,7 +37,7 @@ public class UsersTab extends Fragment {
     private ListView listView;
     private ArrayList<String> arrayList;
     private ArrayAdapter<String> arrayAdapter;
-    ;
+
 
     public UsersTab() {
         // Required empty public constructor

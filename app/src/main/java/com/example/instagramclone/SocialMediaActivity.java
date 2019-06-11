@@ -54,7 +54,6 @@ public class SocialMediaActivity extends AppCompatActivity {
 
         tabLayout = findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager,false);
-        ParseUser parseUser = ParseUser.getCurrentUser();
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
